@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIRO</title>
+  <link rel="stylesheet" href="CSS/style.css" />
+  <link rel="preload" href="Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.woff" as="font" type="font/woff" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+</head>
+<body>
+  <div class="full-landing-image">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="Assets/Videos/Water moving_Small.mp4" type="video/mp4">
+      <img src="Assets/fallback-image.jpg" alt="Background">
+    </video>
+    
+    <header class="top-bar">
+      <div class="left">
+        <img src="Assets/img/logo/Nav.svg" alt="MIRO Logo" class="logo-icon" />
+      </div>
+      <div class="page-indicator">01/07</div>
+      <div class="right"><a href="#" class="contact-link">CONTACT</a></div>
+    </header>
+
+    <div class="center-logo">
+      <img src="Assets/img/Miro Symbol 1.svg" alt="Center Logo" />
+    </div>
+  </div>
+
+  <div class="custom-cursor left-cursor">
+    <img src="Assets/Icons/right.svg" alt="Left Arrow" class="cursor-icon">
+  </div>
+  <div class="custom-cursor right-cursor">
+    <img src="Assets/Icons/left.svg" alt="Right Arrow" class="cursor-icon">
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // Ripple effect
+      $(".full-landing-image").ripples({
+        perturbance: 0.4,
+        dropRadius: 100,
+        resolution: 256,
+        damping: 0.05,
+        spread: 0.05,
+        interactive: true,
+        crossOrigin: ''
+      });
+
+      // Automatic drops
+      setInterval(function() {
+        const $el = $('.full-landing-image');
+        $el.ripples('drop', 
+          Math.random() * $el.width(),
+          Math.random() * $el.height(),
+          25 + Math.random() * 15,
+          0.03 + Math.random() * 0.03
+        );
+      }, 2000);
+
+      // Optimized cursor control
+      const leftCursor = document.querySelector('.left-cursor');
+      const rightCursor = document.querySelector('.right-cursor');
+      const logoIcon = document.querySelector('.logo-icon');
+      const contactLink = document.querySelector('.contact-link');
+      let isScrolling = false;
+      
+      // Hide during scroll
+      window.addEventListener('scroll', function() {
+        isScrolling = true;
+        leftCursor.style.display = 'none';
+        rightCursor.style.display = 'none';
+        setTimeout(() => isScrolling = false, 50);
+      });
+      
+      // Smooth cursor movement with instant switching
+      document.addEventListener('mousemove', function(e) {
+        if (isScrolling) return;
+        
+        // Check if hovering over clickable elements
+        const isOverClickable = e.target.closest('.top-bar') || 
+                               e.target === logoIcon || 
+                               e.target === contactLink;
+        
+        if (isOverClickable) {
+          leftCursor.style.display = 'none';
+          rightCursor.style.display = 'none';
+          return;
+        }
+        
+        const middle = window.innerWidth / 2;
+        const isLeftSide = e.clientX < middle;
+        
+        if (isLeftSide) {
+          leftCursor.style.display = 'block';
+          leftCursor.style.left = e.clientX + 'px';
+          leftCursor.style.top = e.clientY + 'px';
+          rightCursor.style.display = 'none';
+        } else {
+          rightCursor.style.display = 'block';
+          rightCursor.style.left = e.clientX + 'px';
+          rightCursor.style.top = e.clientY + 'px';
+          leftCursor.style.display = 'none';
+        }
+      });
+      
+      // Hide when mouse leaves window
+      document.addEventListener('mouseout', function() {
+        leftCursor.style.display = 'none';
+        rightCursor.style.display = 'none';
+      });
+
+      // Pointer cursor for interactive elements
+      [logoIcon, contactLink].forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          document.body.style.cursor = 'pointer';
+        });
+        el.addEventListener('mouseleave', () => {
+          document.body.style.cursor = 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
