@@ -249,7 +249,7 @@ margin-top: 20px;
   padding: 20px 40px;
   box-sizing: border-box;
   position: absolute;
-  bottom: 0;
+  bottom: 20px; /* Changed from 0 to 20px to match nav bar top spacing */
   left: 0;
 }
 
@@ -275,7 +275,7 @@ margin-top: 20px;
 .contact-container {
   position: relative;
   min-height: calc(100vh - 100px); /* Adjust based on your header height */
-  padding-bottom: 60px; /* Make space for footer */
+  padding-bottom: 80px; /* Make space for footer */
 }
 
 /* Add pointer cursor for email and phone links */
@@ -339,4 +339,25 @@ margin-top: 20px;
 .contact-left a.address-link:hover ~ .custom-cursor,
 .contact-left a[style*="font-family: Metric Light"]:hover ~ .custom-cursor {
   display: none !important;
+}
+
+
+/* FOOTER STYLES */
+.contact-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 20px; /* Changed from 0 to 20px to match nav bar top spacing */
+  left: 0;
+}
+
+/* Adjust contact container padding to maintain layout */
+.contact-container {
+  position: relative;
+  min-height: calc(100vh - 140px); /* Increased from 100px to account for footer spacing */
+  padding-bottom: 80px; /* Increased from 60px to maintain space */
 }
