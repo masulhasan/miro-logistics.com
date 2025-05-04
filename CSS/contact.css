@@ -231,7 +231,7 @@ margin-top: 20px;
 .cursor-icon {
   width: 50px;
   height: 50px;
-  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  /* filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)); */ /* Shadow removed */
 }
 
 /* HEADER CURSOR BEHAVIOR */
