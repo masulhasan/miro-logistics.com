@@ -1,0 +1,182 @@
+@font-face {
+    font-family: "Archia Bold";
+    src: url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Metric Light";
+    src: url("../Fonts/Metric_font/Metric-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Metric Regular";
+    src: url("../Fonts/Metric_font/Metric-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none !important;
+  }
+
+  body {
+    font-family: sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #EBEBEB;
+    position: relative;
+  }
+
+  /* VIDEO BACKGROUND */
+  .video-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  .video-header video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* HEADER STYLES */
+  .top-bar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    height: 65px;
+    background: white;
+    border-radius: 70px;
+    padding: 10px 25px 10px 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .top-bar .left, .top-bar .right {
+    display: flex;
+    align-items: center;
+  }
+
+  .left .logo-icon {
+    height: 65px;
+    width: 180px;
+    margin-right: 10px;
+    cursor: pointer !important;
+  }
+
+  .page-indicator {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #7a7a7a;
+    pointer-events: none;
+  }
+
+  .top-bar .right a {
+    text-decoration: none;
+    color: #7a7a7a;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer !important;
+  }
+
+  /* MAIN CONTENT STYLES */
+  .section-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .left-text {
+    width: 50%;
+    background-color: rgba(212, 234, 232, 0.9);
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .left-text h1 {
+    font-size: 52px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+    font-family: "Archia Bold";
+  }
+
+  .left-text p {
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+    font-family: "Metric Light";
+    font-weight: 400;
+  }
+
+  .right-carousel {
+    width: 50%;
+    background-color: rgba(212, 234, 232, 0.9);
+    overflow: hidden;
+    position: relative;
+    padding-right: 40px;
+  }
+
+  .carousel-track {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    animation: scrollUp 20s linear infinite;
+    gap: 30px;
+  }
+
+  .carousel-video {
+    height: 420px;
+    width: 600px;
+    flex-shrink: 0;
+  }
+
+  .carousel-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+  /* CUSTOM CURSOR */
+  .custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+
+  .cursor-icon {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  }
