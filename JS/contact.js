@@ -61,6 +61,30 @@ document.addEventListener('mouseout', function() {
   rightCursor.style.display = 'none';
 });
 
+// Click navigation functionality
+document.addEventListener('click', function(e) {
+    // Don't navigate if clicking on interactive elements
+    if (e.target.closest('.top-bar') || 
+        e.target === logoIcon || 
+        e.target === contactLink ||
+        e.target === emailLink ||
+        e.target === phoneLink ||
+        e.target === addressLink) {
+        return;
+    }
+    
+    const middle = window.innerWidth / 2;
+    const isLeftSide = e.clientX < middle;
+    
+    if (isLeftSide) {
+        // Go to previous page (index.html)
+        window.location.href = './index.html';
+    } else {
+      // Go to next page (contact.html)
+      window.location.href = './index.html';
+  }
+});
+
 // Pointer cursor for interactive elements
 [logoIcon, contactLink, emailLink, phoneLink, addressLink].forEach(el => {
   el.addEventListener('mouseenter', () => {

@@ -1,0 +1,426 @@
+ @font-face {
+    font-family: "Archia Bold";
+    src: url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+ @font-face {
+    font-family: "Archia Semi Bold";
+    src: url("../Fonts/Archia_Font_Web/05.Archia-Semibold-webfont/archia-semibold-webfont.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+        font-family: "Archia Regular";
+        src: url("../Fonts/Archia_Font_Web/03.Archia-Regular-webfont/archia-regular-webfont.woff") format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+  @font-face {
+    font-family: "Metric Light";
+    src: url("../Fonts/Metric_font/Metric-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Metric Regular";
+    src: url("../Fonts/Metric_font/Metric-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none !important;
+  }
+
+  body {
+    font-family: sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+  }
+
+
+  /* HEADER STYLES */
+  .top-bar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    height: 65px;
+    background: white;
+    border-radius: 70px;
+    padding: 10px 25px 10px 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .top-bar .left, .top-bar .right {
+    display: flex;
+    align-items: center;
+  }
+
+  .left .logo-icon {
+    height: 65px;
+    width: 180px;
+    margin-right: 10px;
+    cursor: pointer !important;
+  }
+
+  .page-indicator {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #7a7a7a;
+    pointer-events: none;
+  }
+
+  .top-bar .right a {
+    text-decoration: none;
+    color: #7a7a7a;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer !important;
+  }
+
+  /* MAIN CONTENT STYLES */
+  .section-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .left-text {
+    width: 50%;
+    background-color: #EBEBEB;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .left-text h1 {
+    font-size: 52px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+    font-family: "Archia Bold";
+  }
+
+  .left-text p {
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+    font-family: "Metric Light";
+    font-weight: 400;
+  }
+
+  .right-carousel {
+    width: 50%;
+    background-color: #EBEBEB;
+    overflow: hidden;
+    position: relative;
+    padding-right: 40px;
+  }
+
+  .carousel-track {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    animation: scrollUp 20s linear infinite;
+    gap: 30px;
+  }
+
+  .carousel-video {
+    height: 420px;
+    width: 600px;
+    flex-shrink: 0;
+  }
+
+  .carousel-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+  /* CUSTOM CURSOR */
+  .custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+
+  .cursor-icon {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  }
+
+      /* Circular Diagram Styles */
+    .diagram-container {
+      position: relative;
+      width: 600px;
+      height: 600px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .center-logo {
+      position: absolute;
+      top: 56%;
+      left: 51%;
+      transform: translate(-50%, -50%);
+      width: 170px;
+      height: 70px;
+      z-index: 10;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .segment {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      cursor: pointer !important;
+    }
+    .segment2 {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #0A3959;
+      font-weight: bold;
+      cursor: pointer !important;
+    }
+    
+    .segment-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+    }
+    .segment-content1 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 67px;
+      left: 64%;
+      transform: translateX(-50%);
+    }
+    .segment-content2 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 100px;
+      left: 15%;
+      transform: translateX(-50%);
+    }
+    .segment-content3 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 61px;
+      left: 15%;
+      transform: translateX(-50%);
+    }
+    .segment-content4 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 67px;
+      left: 25%;
+      transform: translateX(-50%);
+    }
+    .segment-content5 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 59px;
+      left: 10%;
+      transform: translateX(-50%);
+    }
+    .segment-content6 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 92px;
+      left: 12%;
+      transform: translateX(-50%);
+    }
+    
+    .segment-text {
+      font-size: 16px;
+      line-height: 1.2;
+      padding: 0 10px;
+      font-family: "Archia Regular";
+      font-weight: 500;
+    }
+    
+    .segment-bg1, .segment-bg2, .segment-bg3, .segment-bg4, .segment-bg5, .segment-bg6 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    
+    .segment-bg1 {
+      width: 230px;
+      height: 160px;
+    }
+    
+    .segment-bg2 {
+      width: 193.53px;
+      height: 203.23px;
+    }
+    .segment-bg3 {
+      width: 193.53px;
+      height: 203.23px;
+    }
+    
+    .segment-bg4 {
+      width: 229.89px;
+      height: 157.85px;
+    }
+    
+    .segment-bg5 {
+      width: 193.71px;
+      height: 203.38px;
+    }
+    .segment-bg6 {
+      width: 193.71px;
+      height: 203.38px;
+    }
+    
+    /* Position each segment */
+    #segment1 { /* Shipping Lanes */
+      top: 67px;
+      left: 281px;
+      transform: translateX(-50%);
+    }
+    
+    #segment2 { /* Trade Associations */
+      top: 115px;
+      right: 38px;
+      transform: rotate(0deg);
+    }
+    
+    #segment3 { /* Global Trading Companies */
+      bottom: 75px;
+      right: 40px;
+      transform: rotate(0deg);
+    }
+    
+    #segment4 { /* Hauliers */
+      bottom: -15px;
+      left: 280px;
+      transform: translateX(-50%) rotate(0deg);
+    }
+    
+    #segment5 { /* Scrap Metal Producers */
+      bottom: 78px;
+      left: 35px;
+      transform: rotate(0deg);
+    }
+    
+    #segment6 { /* Waste Management Companies */
+      top: 112px;
+      left: 38px;
+      transform: rotate(0deg);
+    }
+    
+    .middle-icon {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Link styling */
+    .segment-link {
+      text-decoration: none;
+      color: white;
+      cursor: pointer !important;
+    }
+    
+    /* Adjust right-carousel for diagram */
+    .right-carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }

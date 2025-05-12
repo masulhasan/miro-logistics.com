@@ -361,3 +361,35 @@ margin-top: 20px;
   min-height: calc(100vh - 140px); /* Increased from 100px to account for footer spacing */
   padding-bottom: 80px; /* Increased from 60px to maintain space */
 }
+
+
+.cursor-active-zone {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.left-active {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.right-active {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.left-active.active, .right-active.active {
+  opacity: 0.3;
+}
+
+/* CURSOR ACTIVE STATES */
+.left-cursor.active .cursor-icon,
+.right-cursor.active .cursor-icon {
+  transform: scale(1.1);
+}

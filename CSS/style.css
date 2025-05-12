@@ -33,12 +33,30 @@ body, html {
 /* VIDEO BACKGROUND */
 .bg-video {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   min-width: 100%;
   min-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: cover;
   z-index: -1;
+}
+
+/* Add this to handle very wide or very tall aspect ratios */
+@media (orientation: portrait) {
+  .bg-video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (orientation: landscape) {
+  .bg-video {
+    width: auto;
+    height: 100%;
+  }
 }
 
 /* HEADER BAR */
@@ -97,15 +115,14 @@ body, html {
 /* CENTER LOGO */
 .center-logo {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
 }
 
 .center-logo img {
-  width: 750px;
-  height: 500px;
+  width: 429px;
   opacity: 0.7;
   transition: opacity 0.3s ease;
 }
@@ -131,12 +148,44 @@ body, html {
   z-index: 9999;
   transform: translate(-50%, -50%);
   display: none;
+  transition: transform 0.2s ease;
 }
 
 .cursor-icon {
-  width: 50px;
-  height: 50px;
-  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  width: 45px;
+  height: 45px;
+}
+
+/* CURSOR ACTIVE ZONES */
+.cursor-active-zone {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.left-active {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.right-active {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.left-active.active, .right-active.active {
+  opacity: 0.3;
+}
+
+/* CURSOR ACTIVE STATES */
+.left-cursor.active .cursor-icon,
+.right-cursor.active .cursor-icon {
+  transform: scale(1.1);
 }
 
 /* HEADER CURSOR BEHAVIOR */
