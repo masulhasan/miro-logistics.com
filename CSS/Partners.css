@@ -177,7 +177,6 @@
   .cursor-icon {
     width: 50px;
     height: 50px;
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
   }
 
       /* Circular Diagram Styles */
@@ -217,6 +216,12 @@
       font-weight: bold;
       cursor: pointer !important;
     }
+
+    .segment:hover {
+      color: black;
+    }
+
+
     .segment2 {
       position: absolute;
       width: 180px;
@@ -424,3 +429,326 @@
       align-items: center;
       padding: 20px;
     }
+
+
+/* Show normal cursor when hovering over segments */
+.segment:hover,
+.segment:active,
+.segment:hover *,
+.segment:active * {
+    cursor: pointer !important;
+}
+
+
+.left a {
+  display: inline-block; /* Keeps the logo's original position */
+  line-height: 0;       /* Removes extra space below the image */
+}
+
+.left a, .logo-icon {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Add hover effects for segment icons */
+.segment:hover .segment-bg1 {
+    content: url("../Assets/Icons/partners-vector/White/1_WHITE.svg");
+    
+}
+
+.segment:hover .segment-bg2 {
+    content: url("../Assets/Icons/partners-vector/White/2_WHITE.svg");
+}
+
+.segment:hover .segment-bg3 {
+    content: url("../Assets/Icons/partners-vector/White/3_WHITE.svg");
+}
+
+.segment:hover .segment-bg4 {
+    content: url("../Assets/Icons/partners-vector/4.svg");
+}
+
+.segment:hover .segment-bg5 {
+    content: url("../Assets/Icons/partners-vector/White/5_WHITE.svg");
+}
+
+.segment:hover .segment-bg6 {
+    content: url("../Assets/Icons/partners-vector/White/6_WHITE.svg");
+}
+
+/* Add transition for smooth color change */
+.segment-bg1, .segment-bg2, .segment-bg3, 
+.segment-bg4, .segment-bg5, .segment-bg6 {
+    transition: all 0.01s ease;
+}
+
+
+/* Add this to the end of your existing CSS */
+
+/* Styles for active segments */
+.segment.active .segment-bg1 {
+    content: url("../Assets/Icons/partners-vector/White/1_WHITE.svg");
+}
+
+.segment.active .segment-bg2 {
+    content: url("../Assets/Icons/partners-vector/White/2_WHITE.svg");
+}
+
+.segment.active .segment-bg3 {
+    content: url("../Assets/Icons/partners-vector/White/3_WHITE.svg");
+}
+
+.segment.active .segment-bg4 {
+    content: url("../Assets/Icons/partners-vector/4.svg");
+}
+
+.segment.active .segment-bg5 {
+    content: url("../Assets/Icons/partners-vector/White/5_WHITE.svg");
+}
+
+.segment.active .segment-bg6 {
+    content: url("../Assets/Icons/partners-vector/White/6_WHITE.svg");
+}
+
+/* Styles for active segment text */
+.segment.active .segment-text {
+    color: black;
+}
+
+/* Prevent default link behavior for segment links */
+.segment-link {
+    pointer-events: none;
+}
+
+/* But allow clicks on the segments themselves */
+.segment {
+    pointer-events: auto;
+}
+
+
+/* Mobile Responsive Styles (max-width: 800px) */
+@media (max-width: 800px) {
+
+    .top-bar {
+    height: 52px;
+  }
+
+  .left .logo-icon{
+    width: 140px;
+  }
+
+  .left-cursor,
+  .right-cursor {
+    display: none !important;
+  }
+  body {
+    overflow: auto; /* Enable scrolling */
+    height: auto; /* Remove fixed height */
+  }
+
+  .section-container {
+    flex-direction: column; /* Stack sections vertically */
+    height: auto; /* Allow content to determine height */
+    min-height: 100vh; /* Ensure it fills the viewport */
+  }
+
+  .left-text, 
+  .right-carousel {
+    width: 100%; /* Full width for both sections */
+    padding: 30px; /* Adjust padding for mobile */
+  }
+
+  .right-carousel {
+    order: 1; /* Display first */
+    padding: 20px; /* Adjust padding */
+    height: auto; /* Allow content to determine height */
+    padding-bottom:110px ;
+  }
+
+  .left-text {
+    order: 2; /* Display second */
+    padding-top: 0; /* Remove extra top padding */
+  }
+
+  /* Adjust diagram for mobile */
+  .diagram-container {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1/1; /* Maintain square aspect ratio */
+    margin: 0 auto;
+  }
+
+  /* Adjust segment positions for mobile */
+  .segment {
+    width: 120px;
+    height: 120px;
+  }
+
+  .segment-text {
+    font-size: 10px; /* Smaller text for mobile */
+  }
+
+  /* Adjust header for mobile */
+  .top-bar {
+    padding: 10px 15px; /* Smaller padding */
+  }
+
+  .logo-icon {
+    width: 150px; /* Slightly smaller logo */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Adjust text sizes for mobile */
+  .left-text h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+  }
+
+  .left-text p {
+    font-family: "Archia Regular";
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+   body {
+    background-color: #EBEBEB !important; /* Match your content background */
+  }
+
+  .section-container {
+    background-color: #EBEBEB; /* Ensure container covers full height */
+  }
+
+  .right-carousel, 
+  .left-text {
+    background-color: #EBEBEB; /* Double-check these match */
+  }
+
+
+  .center-logo {
+    width: 95px; 
+    height: auto; 
+    top: 78%;
+    left: 51%;
+  }
+
+  .segment-bg1{
+    width: 150px;
+    height: 90px;
+  }
+
+  .segment-bg2{
+    width: 108px;
+    height: 114px;
+  }
+
+  .segment-bg3{
+    width: 108px;
+    height: 114px;
+  }
+
+  .segment-bg4{
+    width: 130px;
+    height: 88px;
+  }
+
+  .segment-bg5{
+    width: 108px;
+    height: 114px;
+  }
+
+  .segment-bg6{
+    width: 108px;
+    height: 114px;
+  }
+
+
+  #segment1 {
+    top: 150px;
+    left: 146px;
+    transform: translate(-50%, -50%);
+  }
+
+  #segment2 {
+    top: 56%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+  }
+
+  #segment3 {
+    top: 100%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+  }
+
+  #segment4 {
+    top: 118%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #segment5 {
+    top: 100%;
+    left: 21%;
+    transform: translate(-50%, -50%);
+  }
+
+  #segment6 {
+    top: 57%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+  }
+
+  .segment-content1 {
+    width: 100%;
+    top: 24px;
+    left: 64%;  
+  }
+
+  .segment-content2 {
+    width: 100%;
+    top: 56px;
+    left: -5%;  
+  }
+
+  .segment-content3 {
+    width: 100%;
+    top: 33px;
+    left: -5%;  
+  }
+
+  .segment-content4 {
+    width: 100%;
+    top: 35px;
+    left: 5%;  
+  }
+
+  .segment-content5 {
+    width: 100%;
+    top: 30px;
+    left: -5%;  
+  }
+
+  .segment-content6 {
+    width: 100%;
+    top: 48px;
+    left: -5%;  
+  }
+
+}
+
+@media (max-width: 800px) {
+  /* ... (keep all other existing mobile styles) ... */
+
+  /* Fixed size diagram container */
+  .diagram-container {
+    width: 320px; /* Fixed width */
+    height: 320px; /* Fixed height to maintain aspect ratio */
+    max-width: none; /* Remove max-width restriction */
+    margin: 0 auto;
+    transform: scale(0.9); /* Optional: Slightly scale down if needed */
+  }
+
+}

@@ -393,3 +393,168 @@ margin-top: 20px;
 .right-cursor.active .cursor-icon {
   transform: scale(1.1);
 }
+
+
+.left a {
+  display: inline-block; /* Keeps the logo's original position */
+  line-height: 0;       /* Removes extra space below the image */
+}
+
+.left a, .logo-icon {
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 800px) {
+
+  .top-bar {
+    height: 52px;
+  }
+
+  .left .logo-icon{
+    width: 140px;
+  }
+
+  .left-cursor,
+  .right-cursor {
+    display: none !important;
+  }
+
+  .contact-container {
+    flex-direction: column; /* Stack items vertically */
+    padding-top: 100px; /* More space for navigation */
+    min-height: auto; /* Remove fixed height */
+    padding-bottom: 20px; /* Reduce bottom padding */
+  }
+
+  .contact-left,
+  .contact-right {
+    width: 100%; /* Full width for both sections */
+    text-align: left; /* Center align content */
+  }
+
+  .contact-right {
+    order: 2; /* Ensure it comes after contact-left */
+    padding-top: 0; /* Remove extra top padding */
+    margin-top: 0; /* Remove any margin */
+  }
+
+  .contact-left {
+    order: 1; /* Ensure it comes first */
+  }
+
+  .contact-footer {
+    order: 3; /* Ensure it comes last */
+    position: relative; /* Remove absolute positioning */
+    bottom: auto; /* Reset positioning */
+    flex-direction: column; /* Stack footer items */
+    text-align: center; /* Center align text */
+    padding: 0px; /* Consistent padding */
+    margin-top: 20px; /* Space above footer */
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: center !important; /* Center align text */
+    margin-bottom: 10px; /* Space between footer items */
+  }
+
+  /* Adjust typography for mobile */
+  h2 {
+    font-size: 36px !important; /* Smaller heading */
+  }
+
+  h3, h3 a {
+    font-size: 24px !important; /* Smaller email text */
+  }
+
+  .contact-info,
+  .telephone,
+  .phone-link,
+  .address-link {
+    font-size: 16px !important; /* Smaller contact info */
+  }
+
+  .note {
+    font-size: 16px !important; /* Smaller note text */
+    line-height: 1.4; /* Better readability */
+  }
+
+  /* Adjust membership logos */
+  .memberships {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .memberships img {
+    margin-right: 0; /* Remove right margin */
+    width: 120px; /* Slightly smaller logos */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Make contact image responsive */
+  .contact-right img {
+    max-width: 100%;
+    height: auto;
+  }
+
+   .memberships {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .memberships img {
+    width: 170px;
+    height: auto;
+    margin-right: 0;
+  }
+
+  .contact-left{
+    padding: 20px 0px;
+  }
+
+   body, html {
+    overflow: auto !important; /* Allow scrolling */
+    height: auto !important; /* Remove fixed height */
+  }
+
+  .full-landing-image {
+    min-height: 100vh; /* Allow content to expand */
+    height: auto !important; /* Remove fixed height */
+    overflow: visible !important; /* Show overflowing content */
+  }
+
+  .contact-container {
+    min-height: auto !important; /* Remove fixed height */
+    overflow: visible !important; /* Allow scrolling */
+    padding-bottom: 40px; /* Space for footer */
+  }
+
+  .contact-footer {
+    position: relative !important; /* Remove absolute positioning */
+    bottom: auto !important;
+    margin-top: 30px; /* Space above footer */
+  }
+  
+  .contact-top-icon {
+    padding-bottom: 0px; /* Remove bottom padding */
+  }
+  .contact-top-icon img {
+    width: 80px; /* Smaller icon */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+@media (min-width: 1200px) {
+
+.mobile {
+  display: none !important; 
+}
+}

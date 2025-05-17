@@ -128,6 +128,12 @@
     margin-right: 10px;
     cursor: pointer !important;
   }
+  .left .logo-icon a{
+    height: 65px;
+    width: 180px;
+    margin-right: 10px;
+    cursor: pointer !important;
+  }
   
   .page-indicator {
     position: absolute;
@@ -425,4 +431,91 @@
   text-align: left !important;
   width: 100%;
   padding-left: 8px;
+}
+
+.left a {
+  display: inline-block; /* Keeps the logo's original position */
+  line-height: 0;       /* Removes extra space below the image */
+}
+
+.left a, .logo-icon {
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 800px) {
+
+
+  .top-bar {
+    height: 52px;
+  }
+
+  .left .logo-icon{
+    width: 140px;
+  }
+
+  .left-cursor,
+  .right-cursor {
+    display: none !important;
+  }
+  .contact-container {
+    flex-direction: column; /* Stack items vertically */
+    padding-top: 170px; /* More space for navigation */
+  }
+
+
+  .contact-left,
+  .contact-right {
+    width: 100%; /* Full width for both sections */
+    padding: 10px; /* Consistent padding */
+    text-align: left; /* Center align content */
+    align-items: left !important; /* Center align flex items */
+  }
+
+  .contact-right {
+    padding-top: 0; /* Remove extra top padding */
+    margin-top: -20px; /* Reduce space between sections */
+  }
+
+  h2 {
+    font-size: 26px !important; /* Slightly smaller heading */
+  }
+
+  .counter,
+  .counter-suffix {
+    font-size: 90px !important; /* Smaller counter numbers */
+    line-height: 1; /* Tight line spacing */
+  }
+
+  .counter-label {
+    font-size: 28px !important; /* Smaller label text */
+    text-align: left !important; /* Center align labels */
+    margin-bottom: 20px; /* Space below labels */
+  }
+
+  .counter-container,
+  .counter-container-left {
+    justify-content: left !important; /* Center counters */
+    margin: 20px 0 !important; /* Consistent margins */
+  }
+
+  /* Adjust footer for mobile */
+  .contact-footer {
+    position: relative;
+    bottom: auto;
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: left !important;
+    margin-bottom: 10px;
+  }
+
+  .contact-right .counter-container{
+    padding-top: 1px;
+  }
 }

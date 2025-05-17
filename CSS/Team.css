@@ -205,9 +205,40 @@ body, html {
 /* Add these new styles to your existing CSS */
 
 /* TEAM CONTENT */
+
+.contact-list {
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.contact-list p {
+  display: flex;          /* Aligns items in a row */
+  align-items: center;    /* Vertically centers text */
+  margin: 0 0 8px 0;      /* Adds spacing between lines (optional) */
+}
+
+.contact-list .country-code {
+  font-family: "Archia Bold", sans-serif;
+  min-width: 30px;        /* Ensures consistent width for BR/UK/E */
+  margin-right: 2px;     /* Exact spacing between label and text */
+  text-align: left;      /* Right-aligns country codes (optional) */
+}
+
+.team-information{
+  padding-top: 10px;
+  padding-bottom: 10px;
+ cursor: pointer !important;
+}
+
+.team-informationmay{
+  padding-top: 15px;
+  padding-bottom: 31px;
+  cursor:  none !important;
+}
+
 .team-content {
   text-align: left;
-  padding-top: 5%;
+  padding-top: 1%;
   padding-left: 40px;
   padding-right: 40px;
   margin: 0 auto;
@@ -246,6 +277,7 @@ body, html {
   min-width: 200px; /* Minimum width for each member */
 }
 
+
 .team-member img {
   width: 100%; /* Make images responsive within their container */
   height: 302px;
@@ -261,11 +293,19 @@ body, html {
   margin-bottom: 8px;
 }
 
+.team-cont h4{
+  font-family: "Archia Bold", sans-serif;
+  font-size: 20px;
+  line-height: 24px;  
+  color: #1ca8a4;
+  margin-bottom: 8px;
+}
+
 .team-member p {
   font-family: "Metric Light", sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   color: #333;
-  margin-bottom: 6px;
+  margin-bottom: 0px;
 }
 
 .team-member a {
@@ -286,6 +326,22 @@ body, html {
   display: none;
 }
 
+.st {
+  font-family: "Archia Bold", sans-serif;
+    display: inline-block;
+    width: 24px; /* Fixed width for alignment */
+    text-align: left; /* Optional: Aligns letters to the right */
+  }
+  
+  .contact-text {
+    display: inline-block;
+    margin-left: -5px; /* Adjust spacing */
+  }
+  .contact-ceser {
+    display: inline-block;
+    margin-left: 5px; /* Adjust spacing */
+  }
+
 /* Responsive adjustments */
 @media (max-width: 900px) {
   .team-grid {
@@ -302,5 +358,99 @@ body, html {
     width: 100%;
     height: auto;
     max-height: 400px;
+  }
+}
+
+.left a {
+  display: inline-block; /* Keeps the logo's original position */
+  line-height: 0;       /* Removes extra space below the image */
+}
+
+.left a, .logo-icon {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 800px) {
+
+
+  .top-bar {
+    height: 52px;
+  }
+
+  .left .logo-icon{
+    width: 140px;
+  }
+
+  .team-content{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .team-content h1{
+    font-size: 45px;
+  }
+
+  .team-content p{
+    font-size: 18px;
+    font-family: "Archia Regular", sans-serif;
+  }
+}
+
+@media (max-width: 800px) {
+  /* Convert grid to carousel */
+  .team-grid {
+    display: flex !important; /* Override grid display */
+    grid-template-columns: unset !important;
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding-bottom: 20px;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+  
+  .team-grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
+  }
+  
+  .team-member {
+    flex: 0 0 85%; /* Each member takes 85% of viewport width */
+    scroll-snap-align: start;
+    margin-right: 15px;
+    min-width: unset;
+    padding-right: 20px; /* Extra space at end */
+    padding-top: 30px;
+  }
+  
+  .team-member:last-child {
+    margin-right: 0;
+    padding-right: 20px; /* Extra space at end */
+  }
+  
+  .team-member img {
+    height: 300px; /* Fixed height for consistency */
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  /* Adjust team content spacing */
+  .team-content {
+    padding-top: 20px;
+  }
+  
+  .team-content h1 {
+    font-size: 36px;
+  }
+  
+  .team-content p {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  
+  /* Hide cursor on mobile */
+  .left-cursor, 
+  .right-cursor {
+    display: none !important;
   }
 }

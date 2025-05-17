@@ -5,92 +5,123 @@ const contactLink = document.querySelector('.contact-link');
 const emailLink = document.querySelector('.email-link');
 const phoneLink = document.querySelector('.phone-link');
 const addressLink = document.querySelector('.address-link');
-let isScrolling = false;
 
-// Hide during scroll
-window.addEventListener('scroll', function() {
-  isScrolling = true;
-  leftCursor.style.display = 'none';
-  rightCursor.style.display = 'none';
-  setTimeout(() => isScrolling = false, 50);
-});
+const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-// Smooth cursor movement with instant switching
-document.addEventListener('mousemove', function(e) {
-  if (isScrolling) return;
-  
-  // Check if hovering over clickable elements
-  const isOverClickable = e.target.closest('.top-bar') || 
-                        e.target === logoIcon || 
-                        e.target === contactLink ||
-                        e.target === emailLink ||
-                        e.target === phoneLink ||
-                        e.target === addressLink ||
-                        e.target.closest('a[href^="mailto:"]') || 
-                        e.target.closest('a[href^="tel:"]') ||
-                        e.target.closest('a.address-link');
-  
-  if (isOverClickable) {
+// =====================
+// DESKTOP: Cursor + Click Navigation
+// =====================
+if (!isMobile) {
+  let isScrolling = false;
+
+  window.addEventListener('scroll', function () {
+    isScrolling = true;
     leftCursor.style.display = 'none';
     rightCursor.style.display = 'none';
-    document.body.style.cursor = 'pointer';
-    return;
-  } else {
-    document.body.style.cursor = 'none';
-  }
-  
-  const middle = window.innerWidth / 2;
-  const isLeftSide = e.clientX < middle;
-  
-  if (isLeftSide) {
-    leftCursor.style.display = 'block';
-    leftCursor.style.left = e.clientX + 'px';
-    leftCursor.style.top = e.clientY + 'px';
-    rightCursor.style.display = 'none';
-  } else {
-    rightCursor.style.display = 'block';
-    rightCursor.style.left = e.clientX + 'px';
-    rightCursor.style.top = e.clientY + 'px';
-    leftCursor.style.display = 'none';
-  }
-});
+    setTimeout(() => isScrolling = false, 50);
+  });
 
-// Hide when mouse leaves window
-document.addEventListener('mouseout', function() {
-  leftCursor.style.display = 'none';
-  rightCursor.style.display = 'none';
-});
+  document.addEventListener('mousemove', function (e) {
+    if (isScrolling) return;
 
-// Click navigation functionality
-document.addEventListener('click', function(e) {
-    // Don't navigate if clicking on interactive elements
-    if (e.target.closest('.top-bar') || 
-        e.target === logoIcon || 
-        e.target === contactLink ||
-        e.target === emailLink ||
-        e.target === phoneLink ||
-        e.target === addressLink) {
-        return;
+    const isOverClickable = e.target.closest('.top-bar') ||
+      e.target === logoIcon ||
+      e.target === contactLink ||
+      e.target === emailLink ||
+      e.target === phoneLink ||
+      e.target === addressLink ||
+      e.target.closest('a[href^="mailto:"]') ||
+      e.target.closest('a[href^="tel:"]') ||
+      e.target.closest('a.address-link');
+
+    if (isOverClickable) {
+      leftCursor.style.display = 'none';
+      rightCursor.style.display = 'none';
+      document.body.style.cursor = 'pointer';
+      return;
+    } else {
+      document.body.style.cursor = 'none';
     }
-    
+
     const middle = window.innerWidth / 2;
     const isLeftSide = e.clientX < middle;
-    
-    if (isLeftSide) {
-        // Go to previous page (index.html)
-        window.location.href = './index.html';
-    } else {
-      // Go to next page (contact.html)
-      window.location.href = './index.html';
-  }
-});
 
-// Pointer cursor for interactive elements
-[logoIcon, contactLink, emailLink, phoneLink, addressLink].forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    document.body.style.cursor = 'pointer';
+    if (isLeftSide) {
+      leftCursor.style.display = 'block';
+      leftCursor.style.left = e.clientX + 'px';
+      leftCursor.style.top = e.clientY + 'px';
+      rightCursor.style.display = 'none';
+    } else {
+      rightCursor.style.display = 'block';
+      rightCursor.style.left = e.clientX + 'px';
+      rightCursor.style.top = e.clientY + 'px';
+      leftCursor.style.display = 'none';
+    }
   });
-  el.addEventListener('mouseleave', () => {
-    document.body.style.cursor = 'none';
+
+  document.addEventListener('mouseout', function () {
+    leftCursor.style.display = 'none';
+    rightCursor.style.display = 'none';
   });
-});
+
+  document.addEventListener('click', function (e) {
+    if (
+      e.target.closest('.top-bar') ||
+      e.target === logoIcon ||
+      e.target === contactLink ||
+      e.target === emailLink ||
+      e.target === phoneLink ||
+      e.target === addressLink
+    ) {
+      return;
+    }
+
+    const middle = window.innerWidth / 2;
+    const isLeftSide = e.clientX < middle;
+
+    if (isLeftSide) {
+      window.location.href = './Team.html';
+    } else {
+      window.location.href = './index.html';
+    }
+  });
+
+  [logoIcon, contactLink, emailLink, phoneLink, addressLink].forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      document.body.style.cursor = 'pointer';
+    });
+    el.addEventListener('mouseleave', () => {
+      document.body.style.cursor = 'none';
+    });
+  });
+}
+
+// =====================
+// MOBILE: Swipe Navigation Only
+// =====================
+if (isMobile) {
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  function handleSwipe() {
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        // Swipe Left → Next (Home)
+        window.location.href = './index.html';
+      } else {
+        // Swipe Right → Previous (Team)
+        window.location.href = './Team.html';
+      }
+    }
+  }
+
+  document.addEventListener('touchstart', function (e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }, false);
+
+  document.addEventListener('touchend', function (e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, false);
+}
