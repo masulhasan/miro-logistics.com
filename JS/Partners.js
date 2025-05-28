@@ -22,10 +22,11 @@ if (!isMobile) {
   document.addEventListener('mousemove', function (e) {
     if (isScrolling) return;
 
+    // FIXED: Removed .segment from this condition so cursor shows on segments
     const isOverClickable = e.target.closest('.top-bar') ||
                             e.target === logoIcon ||
-                            e.target === contactLink ||
-                            e.target.closest('.segment');
+                            e.target === contactLink;
+                            // e.target.closest('.segment'); <- REMOVED THIS LINE
 
     if (isOverClickable) {
       leftCursor.style.display = 'none';
@@ -45,7 +46,7 @@ if (!isMobile) {
     cursor.style.top = `${e.clientY}px`;
   });
 
-  // Desktop click-based navigation
+  // Desktop click-based navigation with slide animations
   document.addEventListener('click', function (e) {
     if (
       e.target.closest('.top-bar') ||
@@ -59,12 +60,23 @@ if (!isMobile) {
 
     const middle = window.innerWidth / 2;
     const isLeftSide = e.clientX < middle;
+    const pageContainer = document.body; // Use body as container
 
+    // Add slide animation class
     if (isLeftSide) {
-      window.location.href = './Renewable-confidence.html';
+      pageContainer.classList.add('slide-out-right');
     } else {
-      window.location.href = './In-Numbers.html';
+      pageContainer.classList.add('slide-out-left');
     }
+
+    // Navigate after animation completes
+    setTimeout(() => {
+      if (isLeftSide) {
+        window.location.href = './Renewable-confidence.html';
+      } else {
+        window.location.href = './In-Numbers.html';
+      }
+    }, 600); // Match animation duration
   });
 }
 
@@ -90,31 +102,48 @@ segments.forEach(segment => {
 });
 
 // =========================
-// Mobile Swipe Navigation Only
+// Mobile Swipe Navigation with Slide Animations
 // =========================
 if (isMobile) {
   let touchStartX = 0;
-  let touchEndX = 0;
+  let touchStartY = 0;
+  const swipeThreshold = 50; // Minimum swipe distance
 
   function handleSwipe() {
-    const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        // Swipe left: go to next
-        window.location.href = './In-Numbers.html';
+    const diffX = touchStartX - touchEndX;
+    const diffY = Math.abs(touchStartY - touchEndY);
+    
+    // Only process horizontal swipes that are more horizontal than vertical
+    if (Math.abs(diffX) > swipeThreshold && diffY < 100) {
+      const pageContainer = document.body; // Use body as container
+      
+      if (diffX > 0) {
+        // Swipe left: slide out left and go to next
+        pageContainer.classList.add('slide-out-left');
+        setTimeout(() => {
+          window.location.href = './In-Numbers.html';
+        }, 500); // Slightly faster on mobile
       } else {
-        // Swipe right: go to previous
-        window.location.href = './Renewable-confidence.html';
+        // Swipe right: slide out right and go to previous
+        pageContainer.classList.add('slide-out-right');
+        setTimeout(() => {
+          window.location.href = './Renewable-confidence.html';
+        }, 500);
       }
     }
   }
 
+  let touchEndX = 0;
+  let touchEndY = 0;
+
   document.addEventListener('touchstart', function (e) {
     touchStartX = e.changedTouches[0].screenX;
-  }, false);
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
 
   document.addEventListener('touchend', function (e) {
     touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
     handleSwipe();
-  }, false);
+  }, { passive: true });
 }

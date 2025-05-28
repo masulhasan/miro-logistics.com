@@ -1,30 +1,110 @@
 $(document).ready(function () {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  const $container = $(".full-landing-image");
 
-  // Ripple effect only on non-mobile
+  // Enhanced ripple effect & settings (desktop only)
   if (!isMobile) {
-    $(".full-landing-image").ripples({
-      perturbance: 0.4,
-      dropRadius: 100,
-      resolution: 256,
-      damping: 0.05,
-      spread: 0.05,
-      interactive: true,
-      crossOrigin: ""
-    });
+    // Check if WebGL is supported (important for Safari)
+    function isWebGLSupported() {
+      try {
+        const canvas = document.createElement('canvas');
+        return !!(window.WebGLRenderingContext && 
+          (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+      } catch (e) {
+        return false;
+      }
+    }
 
-    setInterval(function () {
-      const $el = $(".full-landing-image");
-      $el.ripples("drop",
-        Math.random() * $el.width(),
-        Math.random() * $el.height(),
-        25 + Math.random() * 15,
-        0.03 + Math.random() * 0.03
-      );
-    }, 2000);
+    if (isWebGLSupported()) {
+      $container.ripples({
+        perturbance: 0.15,        // Increased from 0.05 for bigger waves
+        dropRadius: 35,           // Increased from 20 for larger ripples
+        resolution: 1024,         // Increased from 512 for better quality
+        imageUrl: null,
+        dropEffect: true,
+        interactive: true,
+        crossOrigin: "",
+        damping: 0.02,           // Reduced from 0.05 for longer-lasting waves
+        autoStart: true
+      });
+
+      // Initial ripples with bigger effect
+      setTimeout(function () {
+        const width = $container.width();
+        const height = $container.height();
+        for (let i = 0; i < 4; i++) {  // Increased from 3
+          $container.ripples("drop",
+            Math.random() * width,
+            Math.random() * height,
+            50,      // Increased from 30 for bigger initial drops
+            0.08     // Increased from 0.04 for stronger effect
+          );
+        }
+      }, 500);
+
+      // Continuous ripples with enhanced visibility
+      setInterval(function () {
+        const width = $container.width();
+        const height = $container.height();
+        $container.ripples("drop",
+          Math.random() * width,
+          Math.random() * height,
+          25 + Math.random() * 40,  // Increased range: 25-65 instead of 15-35
+          0.03 + Math.random() * 0.08  // Increased range: 0.03-0.11 instead of 0.01-0.05
+        );
+      }, 2500);  // Slightly more frequent: every 2.5s instead of 3s
+
+      $(window).on('resize', function () {
+        $container.ripples('updateSize');
+      });
+
+      // Enhanced mousemove ripples
+      document.addEventListener("mousemove", function (e) {
+        if (Math.random() > 0.94) {  // Increased frequency: 6% chance instead of 3%
+          $container.ripples("drop",
+            e.clientX,
+            e.clientY,
+            12,    // Increased from 5
+            0.03   // Increased from 0.01
+          );
+        }
+      });
+
+      // Enhanced click ripples
+      $(document).on("click", function (e) {
+        if (e.target.closest(".top-bar") ||
+          e.target === document.querySelector(".logo-icon") ||
+          e.target === document.querySelector(".contact-link")) {
+          return;
+        }
+
+        const middle = window.innerWidth / 2;
+        const isLeftSide = e.clientX < middle;
+
+        // Much bigger click ripple
+        $container.ripples("drop", e.clientX, e.clientY, 80, 0.12);  // Increased from 40, 0.05
+
+        if (isLeftSide) {
+          document.body.classList.add("slide-out-right");
+        } else {
+          document.body.classList.add("slide-out-left");
+        }
+
+        $(document.body).one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+          if (isLeftSide) {
+            window.location.href = "./Contact.html";
+          } else {
+            window.location.href = "./Renewable-confidence.html";
+          }
+        });
+      });
+    } else {
+      // Fallback for browsers without WebGL support
+      console.log("WebGL not supported, ripple effects disabled");
+    }
   }
 
-  // Custom cursors only on non-mobile
+  // Custom cursors (desktop only)
   if (!isMobile) {
     const leftCursor = document.querySelector(".left-cursor");
     const rightCursor = document.querySelector(".right-cursor");
@@ -100,27 +180,9 @@ $(document).ready(function () {
         document.body.style.cursor = "none";
       });
     });
-
-    // Click navigation (desktop only)
-    document.addEventListener("click", function (e) {
-      if (e.target.closest(".top-bar") ||
-        e.target === logoIcon ||
-        e.target === contactLink) {
-        return;
-      }
-
-      const middle = window.innerWidth / 2;
-      const isLeftSide = e.clientX < middle;
-
-      if (isLeftSide) {
-        window.location.href = "./Contact.html";
-      } else {
-        window.location.href = "./Renewable-confidence.html";
-      }
-    });
   }
 
-  // Swipe navigation on mobile only
+  // Swipe navigation on mobile with slide effect
   if (isMobile) {
     let touchStartX = null;
     let touchEndX = null;
@@ -135,17 +197,23 @@ $(document).ready(function () {
     }, false);
 
     function handleSwipe() {
-      if (!touchStartX || !touchEndX) return;
+      if (touchStartX === null || touchEndX === null) return;
 
       const diff = touchStartX - touchEndX;
 
       if (Math.abs(diff) > 50) {
         if (diff > 0) {
           // Swipe Left
-          window.location.href = "./Renewable-confidence.html";
+          document.body.classList.add("slide-out-left");
+          $(document.body).one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+            window.location.href = "./Renewable-confidence.html";
+          });
         } else {
           // Swipe Right
-          window.location.href = "./Contact.html";
+          document.body.classList.add("slide-out-right");
+          $(document.body).one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+            window.location.href = "./Contact.html";
+          });
         }
       }
 

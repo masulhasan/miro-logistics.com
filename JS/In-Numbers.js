@@ -64,23 +64,40 @@ if (!isMobile && leftCursor && rightCursor) {
     rightCursor.style.display = 'none';
   });
 
-  // Desktop click navigation
+  // Desktop click navigation with slide animations
   document.addEventListener('click', function (e) {
     if (e.target.closest('.top-bar') ||
       e.target === logoIcon ||
       e.target === contactLink ||
-      e.target.closest('.team-member a')) {
+      e.target.closest('.team-member a') ||
+      e.target === emailLink ||
+      e.target === phoneLink ||
+      e.target === addressLink ||
+      e.target.closest('a[href^="mailto:"]') ||
+      e.target.closest('a[href^="tel:"]') ||
+      e.target.closest('a.address-link')) {
       return;
     }
 
     const middle = window.innerWidth / 2;
     const isLeftSide = e.clientX < middle;
+    const pageContainer = document.body; // Use body as container
 
+    // Add slide animation class
     if (isLeftSide) {
-      window.location.href = './Partners.html';
+      pageContainer.classList.add('slide-out-right');
     } else {
-      window.location.href = './Journey.html';
+      pageContainer.classList.add('slide-out-left');
     }
+
+    // Navigate after animation completes
+    setTimeout(() => {
+      if (isLeftSide) {
+        window.location.href = './Partners.html';
+      } else {
+        window.location.href = './Journey.html';
+      }
+    }, 600); // Match animation duration
   });
 }
 
@@ -124,31 +141,48 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ======================
-// MOBILE SWIPE NAVIGATION ONLY
+// MOBILE SWIPE NAVIGATION WITH SLIDE ANIMATIONS
 // ======================
 if (isMobile) {
   let touchStartX = 0;
-  let touchEndX = 0;
+  let touchStartY = 0;
+  const swipeThreshold = 50; // Minimum swipe distance
 
   function handleSwipe() {
-    const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        // Swipe Left → next page
-        window.location.href = './Journey.html';
+    const diffX = touchStartX - touchEndX;
+    const diffY = Math.abs(touchStartY - touchEndY);
+    
+    // Only process horizontal swipes that are more horizontal than vertical
+    if (Math.abs(diffX) > swipeThreshold && diffY < 100) {
+      const pageContainer = document.body; // Use body as container
+      
+      if (diffX > 0) {
+        // Swipe Left → slide out left and go to next page
+        pageContainer.classList.add('slide-out-left');
+        setTimeout(() => {
+          window.location.href = './Journey.html';
+        }, 500); // Slightly faster on mobile
       } else {
-        // Swipe Right → previous page
-        window.location.href = './Partners.html';
+        // Swipe Right → slide out right and go to previous page
+        pageContainer.classList.add('slide-out-right');
+        setTimeout(() => {
+          window.location.href = './Partners.html';
+        }, 500);
       }
     }
   }
 
+  let touchEndX = 0;
+  let touchEndY = 0;
+
   document.addEventListener('touchstart', function (e) {
     touchStartX = e.changedTouches[0].screenX;
-  }, false);
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
 
   document.addEventListener('touchend', function (e) {
     touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
     handleSwipe();
-  }, false);
+  }, { passive: true });
 }

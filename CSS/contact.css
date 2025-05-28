@@ -1,9 +1,15 @@
-
 /* FONT FACE */
 @font-face {
   font-family: "Archia Bold";
   src: url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.woff") format("woff");
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archia Semi Bold";
+  src: url("../Fonts/Archia_Font_Web/05.Archia-Semibold-webfont/archia-semibold-webfont.woff") format("woff");
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -27,6 +33,12 @@
   font-style: normal;
 }
 @font-face {
+  font-family: "Metric Semi Bold";
+  src: url("../Fonts/Metric_font/Metric-Semibold.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
   font-family: "Metric Bold";
   src: url("../Fonts/Metric_font/Metric-Bold.otf") format("opentype");
   font-weight: 700;
@@ -38,7 +50,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none !important;
 }
 
 body, html {
@@ -53,18 +64,20 @@ body, html {
 .full-landing-image {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   background-color: #EBEBEB;
+  padding: 85px 0 0 0; /* Remove bottom padding to control with footer */
 }
 
 /* TYPOGRAPHY */
 h2 {
-  font-family: "Archia Bold", sans-serif;
-  font-weight: 700;
-  font-size: 52px;
-  line-height: 1.2;
-  color: black;
+  font-size: 48px;
+  font-weight: 600;
+  color: #0A3959;
+  font-family: "Archia Semi Bold";
   letter-spacing: -2%;
 }
 
@@ -78,10 +91,10 @@ h3 {
 h3 a{
   font-family: "Metric Regular", sans-serif;
   font-weight: 400;
-  font-size: 52px;
+  font-size: 48px;
   line-height: 1.4;
   margin-bottom: 15px;
-  color: black;
+  color: #0A3959;
   letter-spacing: -2%;
   cursor: pointer !important;
 }
@@ -100,16 +113,15 @@ a {
   text-decoration: none;
 }
 
-
 .top-bar {
-  position: absolute;
+ position: absolute;
   top: 20px;
   left: 20px;
   right: 20px;
-  height: 65px;
+  height: 60px;
   background: white;
   border-radius: 70px;
-  padding: 10px 25px 10px 1px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -124,8 +136,8 @@ a {
 }
 
 .left .logo-icon {
-  height: 65px;
-  width: 180px;
+  height: 20px;
+  width: 133px;
   margin-right: 10px;
   cursor: pointer !important;
 }
@@ -145,12 +157,13 @@ a {
 }
 
 .top-bar .right a {
+  font-family: "Archia Semi Bold";
   text-decoration: none;
-  color: #7a7a7a;
-  font-family: "Archia Bold", sans-serif;
+  color: #0A3959;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 27px;
   cursor: pointer !important;
+  letter-spacing: -6%;
 }
 
 /* CONTACT SECTION */
@@ -160,7 +173,13 @@ a {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  padding-top: 12%;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: calc(100vh - 170px); /* Account for top spacing and footer */
+  padding-bottom: 100px; /* Space for footer */
+  position: relative; /* Establish positioning context */
 }
 
 .contact-left{
@@ -181,16 +200,17 @@ a {
   margin-right: 20px;
 }
 .memberships {
-margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .note {
-  margin-top: 20px;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 20px;
   font-family: "Metric Light";
-  color: #000000;
+  color: #0A3959;
   font-weight: 400;
+  letter-spacing: -2%;
 }
 
 .contact-right img {
@@ -200,7 +220,6 @@ margin-top: 20px;
   max-width: 1080px;
   max-height: 720px;
 }
-
 
 @media (max-width: 1440px) {
   .contact-right img {
@@ -231,14 +250,12 @@ margin-top: 20px;
 .cursor-icon {
   width: 50px;
   height: 50px;
-  /* filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)); */ /* Shadow removed */
 }
 
 /* HEADER CURSOR BEHAVIOR */
 .top-bar, .top-bar * {
   cursor: default !important;
 }
-
 
 /* FOOTER STYLES */
 .contact-footer {
@@ -248,15 +265,17 @@ margin-top: 20px;
   align-items: center;
   padding: 20px 40px;
   box-sizing: border-box;
-  position: absolute;
-  bottom: 20px; /* Changed from 0 to 20px to match nav bar top spacing */
+  position: absolute; /* Position within container */
+  bottom: 20px; /* 20px from bottom */
   left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .footer-left {
   font-family: "Metric Light", sans-serif;
   font-size: 16px;
-  color: #000;
+  color: #0A3959;
   text-align: left;
   line-height: 24px;
   font-weight: 400;
@@ -265,17 +284,10 @@ margin-top: 20px;
 .footer-right {
   font-family: "Metric Light", sans-serif;
   font-size: 16px;
-  color: #000;
+  color: #0A3959;
   text-align: right;
   font-weight: 400px;
   line-height: 24px;
-}
-
-/* Adjust contact container to accommodate footer */
-.contact-container {
-  position: relative;
-  min-height: calc(100vh - 100px); /* Adjust based on your header height */
-  padding-bottom: 80px; /* Make space for footer */
 }
 
 /* Add pointer cursor for email and phone links */
@@ -294,30 +306,29 @@ margin-top: 20px;
 
 .telephone{
   font-size: 20px; 
-  font-weight: 700; 
-  font-family: Metric Bold;
+  font-weight: 500; 
+  font-family: "Metric Semi Bold";
 }
 
 .phone-link{
   font-size: 20px; 
   font-weight: 400; 
   font-family: Metric Light; 
-  color: black;
+  color: #0A3959;
   line-height: 24px;
 }
 
 .contact-info{
   font-size: 20px;
   line-height: 24px;
+  color: #0A3959;
 }
 
-
-/* Add to your existing CSS */
 .address-link {
   font-size: 20px;
   font-weight: 400;
-  font-family: Metric Light;
-  color: black;
+  font-family: "Metric Light";
+  color: #0A3959;
   text-decoration: none;
   cursor: pointer !important;
 }
@@ -340,28 +351,6 @@ margin-top: 20px;
 .contact-left a[style*="font-family: Metric Light"]:hover ~ .custom-cursor {
   display: none !important;
 }
-
-
-/* FOOTER STYLES */
-.contact-footer {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 20px; /* Changed from 0 to 20px to match nav bar top spacing */
-  left: 0;
-}
-
-/* Adjust contact container padding to maintain layout */
-.contact-container {
-  position: relative;
-  min-height: calc(100vh - 140px); /* Increased from 100px to account for footer spacing */
-  padding-bottom: 80px; /* Increased from 60px to maintain space */
-}
-
 
 .cursor-active-zone {
   position: fixed;
@@ -394,10 +383,9 @@ margin-top: 20px;
   transform: scale(1.1);
 }
 
-
 .left a {
-  display: inline-block; /* Keeps the logo's original position */
-  line-height: 0;       /* Removes extra space below the image */
+  display: inline-block;
+  line-height: 0;
 }
 
 .left a, .logo-icon {
@@ -407,13 +395,13 @@ margin-top: 20px;
 
 /* Mobile Responsive Styles */
 @media (max-width: 800px) {
-
   .top-bar {
-    height: 52px;
+    height: 60px;
   }
 
   .left .logo-icon{
-    width: 140px;
+    width: 133px;
+    height: 20px;
   }
 
   .left-cursor,
@@ -422,139 +410,323 @@ margin-top: 20px;
   }
 
   .contact-container {
-    flex-direction: column; /* Stack items vertically */
-    padding-top: 100px; /* More space for navigation */
-    min-height: auto; /* Remove fixed height */
-    padding-bottom: 20px; /* Reduce bottom padding */
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .contact-left,
   .contact-right {
-    width: 100%; /* Full width for both sections */
-    text-align: left; /* Center align content */
+    width: 100%;
+    text-align: left;
   }
 
   .contact-right {
-    order: 2; /* Ensure it comes after contact-left */
-    padding-top: 0; /* Remove extra top padding */
-    margin-top: 0; /* Remove any margin */
+    order: 2;
+    padding-top: 0;
+    margin-top: 0;
   }
 
   .contact-left {
-    order: 1; /* Ensure it comes first */
+    order: 1;
   }
 
   .contact-footer {
-    order: 3; /* Ensure it comes last */
-    position: relative; /* Remove absolute positioning */
-    bottom: auto; /* Reset positioning */
-    flex-direction: column; /* Stack footer items */
-    text-align: center; /* Center align text */
-    padding: 0px; /* Consistent padding */
-    margin-top: 20px; /* Space above footer */
+    order: 3;
+    position: relative !important;
+    bottom: auto !important;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0px 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
 
   .footer-left,
   .footer-right {
-    text-align: center !important; /* Center align text */
-    margin-bottom: 10px; /* Space between footer items */
+    text-align: left !important;
+    width: 100%;
   }
 
-  /* Adjust typography for mobile */
   h2 {
-    font-size: 36px !important; /* Smaller heading */
+    font-size: 40px !important;
   }
 
   h3, h3 a {
-    font-size: 24px !important; /* Smaller email text */
+    font-size: 28px !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 
   .contact-info,
   .telephone,
   .phone-link,
   .address-link {
-    font-size: 16px !important; /* Smaller contact info */
+    font-size: 18px !important;
+    line-height: 21px;
   }
 
   .note {
-    font-size: 16px !important; /* Smaller note text */
-    line-height: 1.4; /* Better readability */
+    font-size: 18px !important;
+    line-height: 20px;
   }
 
-  /* Adjust membership logos */
   .memberships {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .memberships img {
-    margin-right: 0; /* Remove right margin */
-    width: 120px; /* Slightly smaller logos */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  /* Make contact image responsive */
-  .contact-right img {
-    max-width: 100%;
-    height: auto;
-  }
-
-   .memberships {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
   }
 
   .memberships img {
-    width: 170px;
+    width: 115px;
     height: auto;
     margin-right: 0;
   }
 
   .contact-left{
-    padding: 20px 0px;
+    padding: 20px 20px;
+    padding-bottom:30px;
   }
 
-   body, html {
-    overflow: auto !important; /* Allow scrolling */
-    height: auto !important; /* Remove fixed height */
+  body, html {
+    overflow: auto !important;
+    height: auto !important;
   }
 
   .full-landing-image {
-    min-height: 100vh; /* Allow content to expand */
-    height: auto !important; /* Remove fixed height */
-    overflow: visible !important; /* Show overflowing content */
+    min-height: 100vh;
+    height: auto !important;
+    overflow: visible !important;
+    padding-bottom: 0;
   }
 
   .contact-container {
-    min-height: auto !important; /* Remove fixed height */
-    overflow: visible !important; /* Allow scrolling */
-    padding-bottom: 40px; /* Space for footer */
-  }
-
-  .contact-footer {
-    position: relative !important; /* Remove absolute positioning */
-    bottom: auto !important;
-    margin-top: 30px; /* Space above footer */
+    min-height: auto !important;
+    overflow: visible !important;
+    padding-bottom: 40px;
   }
   
   .contact-top-icon {
-    padding-bottom: 0px; /* Remove bottom padding */
+    padding-bottom: 0px;
   }
   .contact-top-icon img {
-    width: 80px; /* Smaller icon */
-    height: auto; /* Maintain aspect ratio */
+    width: 80px;
+    height: auto;
+  }
+
+  .contact-right{
+    padding: 0px;
   }
 }
 
 @media (min-width: 1200px) {
-
-.mobile {
-  display: none !important; 
+  .mobile {
+    display: none !important; 
+  }
 }
+
+/* Add this at the top of your CSS file */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Contact Container Animation */
+.contact-container {
+  animation: fadeUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Left Column Animations */
+.contact-left h2 {
+  animation: fadeUp 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-left h3,
+.contact-left h3 a {
+  animation: fadeUp 0.8s ease-out 0.5s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-left .contact-info {
+  animation: fadeUp 0.8s ease-out 0.6s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-left .note {
+  animation: fadeUp 0.8s ease-out 0.7s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-left .memberships {
+  animation: fadeUp 0.8s ease-out 0.8s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Right Column Animation */
+.contact-right img {
+  animation: fadeUp 0.8s ease-out 0.9s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Footer Animation */
+.contact-footer {
+  animation: fadeUp 0.8s ease-out 1s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 800px) {
+  /* Simplify animations for mobile */
+  .contact-left > *,
+  .contact-right > * {
+    animation: fadeUp 0.8s ease-out 0.4s forwards !important;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .contact-footer {
+    animation: fadeUp 0.8s ease-out 0.5s forwards;
+  }
+}
+
+/* ====================================
+   SLIDE ANIMATION SYSTEM - CONTACT PAGE
+   Add this CSS to your existing contact.css file
+   ==================================== */
+
+/* Enhanced slide animations - Exit animations (leaving current page) */
+body.slide-out-left {
+  animation: slideOutLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-out-right {
+  animation: slideOutRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Slide in animations - Entry animations (entering new page) */
+body.slide-in-from-left {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-in-from-right {
+  animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Keyframe animations */
+@keyframes slideOutLeft {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideOutRight {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideInFromLeft {
+  from { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideInFromRight {
+  from { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+/* Mobile optimized slide animations */
+@media (max-width: 800px) {
+  body.slide-out-left,
+  body.slide-out-right,
+  body.slide-in-from-left,
+  body.slide-in-from-right {
+    animation-duration: 0.5s; /* Faster on mobile */
+  }
+  
+  /* Ensure mobile scrolling works properly during normal browsing */
+  body:not(.slide-out-left):not(.slide-out-right):not(.slide-in-from-left):not(.slide-in-from-right) {
+    overflow-x: hidden; /* Keep horizontal overflow hidden */
+  }
+}
+
+/* Prevent animation conflicts with existing page animations */
+body.slide-out-left .contact-container *,
+body.slide-out-right .contact-container *,
+body.slide-out-left .contact-left *,
+body.slide-out-right .contact-left *,
+body.slide-out-left .contact-right *,
+body.slide-out-right .contact-right * {
+  animation-play-state: paused; /* Pause other animations during page transition */
+}
+
+/* Optional: Add a subtle backdrop during transition */
+body.slide-out-left::before,
+body.slide-out-right::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+/* Ensure proper transform origin for smooth animations */
+body, html {
+  transform-origin: center center;
+}
+
+.slide-out-right {
+  background-color:  #EBEBEB;
+}
+.slide-out-left {
+  background-color:  #99BBD5;
 }

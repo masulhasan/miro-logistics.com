@@ -8,7 +8,7 @@
  @font-face {
     font-family: "Archia Semi Bold";
     src: url("../Fonts/Archia_Font_Web/05.Archia-Semibold-webfont/archia-semibold-webfont.woff") format("woff");
-    font-weight: 500;
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
   }
@@ -56,10 +56,10 @@
     top: 20px;
     left: 20px;
     right: 20px;
-    height: 65px;
+    height: 60px;
     background: white;
     border-radius: 70px;
-    padding: 10px 25px 10px 1px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -72,9 +72,8 @@
   }
 
   .left .logo-icon {
-    height: 65px;
-    width: 180px;
-    margin-right: 10px;
+    height: 20px;
+    width: 133px;
     cursor: pointer !important;
   }
 
@@ -90,11 +89,13 @@
   }
 
   .top-bar .right a {
-    text-decoration: none;
-    color: #7a7a7a;
-    font-weight: 600;
-    font-size: 18px;
-    cursor: pointer !important;
+font-family: "Archia Semi Bold";
+  text-decoration: none;
+  color: #0A3959;
+  font-weight: 600;
+  font-size: 27px;
+  cursor: pointer !important;
+  letter-spacing: -6%;
   }
 
   /* MAIN CONTENT STYLES */
@@ -109,26 +110,28 @@
   .left-text {
     width: 50%;
     background-color: #EBEBEB;
-    padding: 60px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
   .left-text h1 {
-    font-size: 52px;
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 20px;
-    font-family: "Archia Bold";
+    font-size: 48px;
+    font-weight: 600;
+    color: #0A3959;
+    margin-bottom: 15px;
+    font-family: "Archia Semi Bold";
+    letter-spacing: -2%;
   }
 
   .left-text p {
     font-size: 20px;
-    line-height: 24px;
-    color: #000000;
+    line-height: 22px;
+    color: #0A3959;
     font-family: "Metric Light";
     font-weight: 400;
+    letter-spacing: -2%;
   }
 
   .right-carousel {
@@ -214,12 +217,8 @@
       text-align: center;
       color: white;
       font-weight: bold;
-      cursor: pointer !important;
     }
 
-    .segment:hover {
-      color: black;
-    }
 
 
     .segment2 {
@@ -232,7 +231,6 @@
       text-align: center;
       color: #0A3959;
       font-weight: bold;
-      cursor: pointer !important;
     }
     
     .segment-content {
@@ -255,7 +253,7 @@
       width: 80%;
       transform-origin: center;
       /* You can now modify these properties like you would with #segment1 */
-      top: 67px;
+      top: 50px;
       left: 64%;
       transform: translateX(-50%);
     }
@@ -269,8 +267,8 @@
       width: 80%;
       transform-origin: center;
       /* You can now modify these properties like you would with #segment1 */
-      top: 100px;
-      left: 15%;
+      top: 111px;
+      left: 14%;
       transform: translateX(-50%);
     }
     .segment-content3 {
@@ -332,10 +330,10 @@
     
     .segment-text {
       font-size: 16px;
-      line-height: 1.2;
+      line-height: 22px;
       padding: 0 10px;
-      font-family: "Archia Regular";
-      font-weight: 500;
+      font-family: "Archia Semi Bold";
+      font-weight: 600;
     }
     
     .segment-bg1, .segment-bg2, .segment-bg3, .segment-bg4, .segment-bg5, .segment-bg6 {
@@ -375,38 +373,38 @@
     
     /* Position each segment */
     #segment1 { /* Shipping Lanes */
-      top: 67px;
+      top: 40px;
       left: 281px;
       transform: translateX(-50%);
     }
     
     #segment2 { /* Trade Associations */
-      top: 115px;
-      right: 38px;
+      top: 105px;
+      right: 23px;
       transform: rotate(0deg);
     }
     
     #segment3 { /* Global Trading Companies */
-      bottom: 75px;
-      right: 40px;
+      bottom: 62px;
+      right: 26px;
       transform: rotate(0deg);
     }
     
     #segment4 { /* Hauliers */
-      bottom: -15px;
+      bottom: -40px;
       left: 280px;
       transform: translateX(-50%) rotate(0deg);
     }
     
     #segment5 { /* Scrap Metal Producers */
-      bottom: 78px;
-      left: 35px;
+      bottom: 63px;
+      left: 21px;
       transform: rotate(0deg);
     }
     
     #segment6 { /* Waste Management Companies */
-      top: 112px;
-      left: 38px;
+      top: 106px;
+      left: 24px;
       transform: rotate(0deg);
     }
     
@@ -419,7 +417,6 @@
     .segment-link {
       text-decoration: none;
       color: white;
-      cursor: pointer !important;
     }
     
     /* Adjust right-carousel for diagram */
@@ -432,12 +429,7 @@
 
 
 /* Show normal cursor when hovering over segments */
-.segment:hover,
-.segment:active,
-.segment:hover *,
-.segment:active * {
-    cursor: pointer !important;
-}
+
 
 
 .left a {
@@ -452,69 +444,39 @@
 
 
 
-/* Add hover effects for segment icons */
-.segment:hover .segment-bg1 {
-    content: url("../Assets/Icons/partners-vector/White/1_WHITE.svg");
-    
-}
 
-.segment:hover .segment-bg2 {
-    content: url("../Assets/Icons/partners-vector/White/2_WHITE.svg");
-}
-
-.segment:hover .segment-bg3 {
-    content: url("../Assets/Icons/partners-vector/White/3_WHITE.svg");
-}
-
-.segment:hover .segment-bg4 {
-    content: url("../Assets/Icons/partners-vector/4.svg");
-}
-
-.segment:hover .segment-bg5 {
-    content: url("../Assets/Icons/partners-vector/White/5_WHITE.svg");
-}
-
-.segment:hover .segment-bg6 {
-    content: url("../Assets/Icons/partners-vector/White/6_WHITE.svg");
-}
-
-/* Add transition for smooth color change */
-.segment-bg1, .segment-bg2, .segment-bg3, 
-.segment-bg4, .segment-bg5, .segment-bg6 {
-    transition: all 0.01s ease;
-}
 
 
 /* Add this to the end of your existing CSS */
 
 /* Styles for active segments */
 .segment.active .segment-bg1 {
-    content: url("../Assets/Icons/partners-vector/White/1_WHITE.svg");
+    content: url("../Assets/Icons/partners-vector/1.svg");
 }
 
 .segment.active .segment-bg2 {
-    content: url("../Assets/Icons/partners-vector/White/2_WHITE.svg");
+    content: url("../Assets/Icons/partners-vector/2.svg");
 }
 
 .segment.active .segment-bg3 {
-    content: url("../Assets/Icons/partners-vector/White/3_WHITE.svg");
+    content: url("../Assets/Icons/partners-vector/3.svg");
 }
 
 .segment.active .segment-bg4 {
-    content: url("../Assets/Icons/partners-vector/4.svg");
+    content: url("../Assets/Icons/partners-vector/White/4_BLUE.svg");
 }
 
 .segment.active .segment-bg5 {
-    content: url("../Assets/Icons/partners-vector/White/5_WHITE.svg");
+    content: url("../Assets/Icons/partners-vector/5.svg");
 }
 
 .segment.active .segment-bg6 {
-    content: url("../Assets/Icons/partners-vector/White/6_WHITE.svg");
+    content: url("../Assets/Icons/partners-vector/6.svg");
 }
 
 /* Styles for active segment text */
 .segment.active .segment-text {
-    color: black;
+    color: white;
 }
 
 /* Prevent default link behavior for segment links */
@@ -526,6 +488,17 @@
 .segment {
     pointer-events: auto;
 }
+
+
+
+
+/* Add transition for smooth color change */
+.segment-bg1, .segment-bg2, .segment-bg3, 
+.segment-bg4, .segment-bg5, .segment-bg6 {
+    transition: all 0.01s ease;
+}
+
+
 
 
 /* Mobile Responsive Styles (max-width: 800px) */
@@ -557,19 +530,19 @@
   .left-text, 
   .right-carousel {
     width: 100%; /* Full width for both sections */
-    padding: 30px; /* Adjust padding for mobile */
+    padding: 40px; /* Adjust padding for mobile */
+    padding-top: 103px;
   }
 
   .right-carousel {
-    order: 1; /* Display first */
+    order: 2; /* Display first */
     padding: 20px; /* Adjust padding */
     height: auto; /* Allow content to determine height */
     padding-bottom:110px ;
   }
 
   .left-text {
-    order: 2; /* Display second */
-    padding-top: 0; /* Remove extra top padding */
+    order: 1; /* Display second */
   }
 
   /* Adjust diagram for mobile */
@@ -588,7 +561,10 @@
   }
 
   .segment-text {
-    font-size: 10px; /* Smaller text for mobile */
+    font-size: 11px; /* Smaller text for mobile */
+    line-height: 14px;
+    font-weight: 600;
+    font-family: "Archia Semi Bold";
   }
 
   /* Adjust header for mobile */
@@ -603,14 +579,15 @@
 
   /* Adjust text sizes for mobile */
   .left-text h1 {
-    font-size: 45px;
-    margin-bottom: 15px;
+    font-size: 44px;
+    margin-bottom: 20px;
   }
 
   .left-text p {
-    font-family: "Archia Regular";
-    font-size: 16px;
-    line-height: 24px;
+    font-family: "Metric Light";
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0%;
   }
 
    body {
@@ -628,9 +605,9 @@
 
 
   .center-logo {
-    width: 95px; 
+    width: 110px; 
     height: auto; 
-    top: 78%;
+    top: 43%;
     left: 51%;
   }
 
@@ -666,38 +643,38 @@
 
 
   #segment1 {
-    top: 150px;
-    left: 146px;
+    top: 22px;
+    left: 148px;
     transform: translate(-50%, -50%);
   }
 
   #segment2 {
-    top: 56%;
-    left: 85%;
+    top: 20%;
+    left: 86%;
     transform: translate(-50%, -50%);
   }
 
   #segment3 {
-    top: 100%;
+    top: 66%;
     left: 85%;
     transform: translate(-50%, -50%);
   }
 
   #segment4 {
-    top: 118%;
-    left: 50%;
+    top: 87%;
+    left: 49%;
     transform: translate(-50%, -50%);
   }
 
   #segment5 {
-    top: 100%;
-    left: 21%;
+    top: 66%;
+    left: 19%;
     transform: translate(-50%, -50%);
   }
 
   #segment6 {
-    top: 57%;
-    left: 20%;
+    top: 19%;
+    left: 19%;
     transform: translate(-50%, -50%);
   }
 
@@ -751,4 +728,158 @@
     transform: scale(0.9); /* Optional: Slightly scale down if needed */
   }
 
+}
+
+
+/*Animations*/
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.left-text h1 {
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.left-text p {
+  animation: fadeUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+  transform: translateY(35px);
+}
+
+@media (min-width: 1100px) {
+ 
+  .mobile{
+    display: none;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .mobilett{
+    display: none;
+  }
+}
+
+
+/* Add these styles to your Partners.css file */
+
+/* Ensure body can handle slide animations */
+body {
+  font-family: sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(211, 7, 7);
+  position: relative;
+  /* Add transform origin for smooth animations */
+  transform-origin: center center;
+}
+
+/* Enhanced slide animations for this page */
+body.slide-out-left {
+  animation: slideOutLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-out-right {
+  animation: slideOutRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Slide in animations for page entrance */
+body.slide-in-from-left {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-in-from-right {
+  animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideOutLeft {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideOutRight {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideInFromLeft {
+  from { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideInFromRight {
+  from { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+/* Mobile optimized animations */
+@media (max-width: 800px) {
+  body.slide-out-left,
+  body.slide-out-right,
+  body.slide-in-from-left,
+  body.slide-in-from-right {
+    animation-duration: 0.5s; /* Faster on mobile */
+  }
+  
+  /* Ensure mobile scrolling works properly during normal browsing */
+  body:not(.slide-out-left):not(.slide-out-right):not(.slide-in-from-left):not(.slide-in-from-right) {
+    overflow: auto; /* Enable scrolling when not animating */
+    height: auto; /* Remove fixed height when not animating */
+  }
+}
+
+/* Prevent animation conflicts with existing animations */
+body.slide-out-left .left-text h1,
+body.slide-out-left .left-text p,
+body.slide-out-right .left-text h1,
+body.slide-out-right .left-text p {
+  animation: none; /* Disable text animations during page transition */
+}
+
+/* Ensure diagram doesn't interfere with slide animations */
+body.slide-out-left .diagram-container,
+body.slide-out-right .diagram-container {
+  transform: none; /* Prevent transform conflicts */
+}
+
+
+.slide-out-right {
+  background-color:   #D6EAE8;
+}
+.slide-out-left {
+  background-color:  #0A3959;
 }
