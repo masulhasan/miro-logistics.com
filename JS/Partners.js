@@ -72,9 +72,9 @@ if (!isMobile) {
     // Navigate after animation completes
     setTimeout(() => {
       if (isLeftSide) {
-        window.location.href = './Renewable-confidence.html';
+        window.location.href = './renewable-confidence.html';
       } else {
-        window.location.href = './In-Numbers.html';
+        window.location.href = './in-numbers.html';
       }
     }, 600); // Match animation duration
   });

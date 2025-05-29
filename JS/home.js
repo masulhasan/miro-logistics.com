@@ -92,9 +92,9 @@ $(document).ready(function () {
 
         $(document.body).one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
           if (isLeftSide) {
-            window.location.href = "./Contact.html";
+            window.location.href = "./contact.html";
           } else {
-            window.location.href = "./Renewable-confidence.html";
+            window.location.href = "./renewable-confidence.html";
           }
         });
       });

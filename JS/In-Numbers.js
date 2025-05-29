@@ -93,9 +93,9 @@ if (!isMobile && leftCursor && rightCursor) {
     // Navigate after animation completes
     setTimeout(() => {
       if (isLeftSide) {
-        window.location.href = './Partners.html';
+        window.location.href = './partners.html';
       } else {
-        window.location.href = './Journey.html';
+        window.location.href = './pourney.html';
       }
     }, 600); // Match animation duration
   });

@@ -130,7 +130,7 @@ if (isMobile) {
         // Swipe Right → slide out right and go to previous page
         pageContainer.classList.add('slide-out-right');
         setTimeout(() => {
-          window.location.href = './Journey.html';
+          window.location.href = './journey.html';
         }, 500);
       }
     }

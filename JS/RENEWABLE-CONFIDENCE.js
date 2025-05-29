@@ -255,7 +255,7 @@ function setupMobileInteractions() {
             if (diffX > 0) {
                 pageContainer.classList.add('slide-out-left');
                 setTimeout(() => {
-                    window.location.href = './Partners.html';
+                    window.location.href = './partners.html';
                 }, 500);
             } else {
                 pageContainer.classList.add('slide-out-right');

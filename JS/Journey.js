@@ -102,12 +102,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (diffX > 0) {
           pageContainer.classList.add('slide-out-left');
           setTimeout(() => {
-            window.location.href = './Team.html';
+            window.location.href = './team.html';
           }, 500);
         } else {
           pageContainer.classList.add('slide-out-right');
           setTimeout(() => {
-            window.location.href = './In-Numbers.html';
+            window.location.href = './in-Numbers.html';
           }, 500);
         }
       }
