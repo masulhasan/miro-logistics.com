@@ -121,13 +121,13 @@ if (isMobile) {
         // Swipe left: slide out left and go to next
         pageContainer.classList.add('slide-out-left');
         setTimeout(() => {
-          window.location.href = './In-Numbers.html';
+          window.location.href = './in-Numbers.html';
         }, 500); // Slightly faster on mobile
       } else {
         // Swipe right: slide out right and go to previous
         pageContainer.classList.add('slide-out-right');
         setTimeout(() => {
-          window.location.href = './Renewable-confidence.html';
+          window.location.href = './renewable-confidence.html';
         }, 500);
       }
     }

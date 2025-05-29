@@ -84,7 +84,7 @@ if (!isMobile && leftCursor && rightCursor) {
     // Navigate after animation completes
     setTimeout(() => {
       if (isLeftSide) {
-        window.location.href = './Journey.html';
+        window.location.href = './journey.html';
       } else {
         window.location.href = './contact.html';
       }

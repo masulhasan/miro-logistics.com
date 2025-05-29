@@ -206,13 +206,13 @@ $(document).ready(function () {
           // Swipe Left
           document.body.classList.add("slide-out-left");
           $(document.body).one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
-            window.location.href = "./Renewable-confidence.html";
+            window.location.href = "./renewable-confidence.html";
           });
         } else {
           // Swipe Right
           document.body.classList.add("slide-out-right");
           $(document.body).one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
-            window.location.href = "./Contact.html";
+            window.location.href = "./contact.html";
           });
         }
       }

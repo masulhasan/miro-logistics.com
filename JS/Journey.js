@@ -73,12 +73,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if (isLeftSide) {
         pageContainer.classList.add('slide-out-right');
         setTimeout(() => {
-          window.location.href = './In-Numbers.html';
+          window.location.href = './in-Numbers.html';
         }, 600);
       } else {
         pageContainer.classList.add('slide-out-left');
         setTimeout(() => {
-          window.location.href = './Team.html';
+          window.location.href = './team.html';
         }, 600);
       }
     });

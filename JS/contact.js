@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize the slide animation system for Contact page
   const slideSystem = new SlideAnimationSystem({
     navigationMap: {
-      left: './Team.html',     // Previous page (Team)
+      left: './team.html',     // Previous page (Team)
       right: './index.html'    // Next page (Home)
     },
     excludeSelectors: [

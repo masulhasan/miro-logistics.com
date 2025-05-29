@@ -160,13 +160,13 @@ if (isMobile) {
         // Swipe Left → slide out left and go to next page
         pageContainer.classList.add('slide-out-left');
         setTimeout(() => {
-          window.location.href = './Journey.html';
+          window.location.href = './journey.html';
         }, 500); // Slightly faster on mobile
       } else {
         // Swipe Right → slide out right and go to previous page
         pageContainer.classList.add('slide-out-right');
         setTimeout(() => {
-          window.location.href = './Partners.html';
+          window.location.href = './partners.html';
         }, 500);
       }
     }

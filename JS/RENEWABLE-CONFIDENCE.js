@@ -228,7 +228,7 @@ function setupDesktopInteractions(leftCursor, rightCursor, logoIcon, contactLink
         }
 
         setTimeout(() => {
-            window.location.href = isLeftSide ? './index.html' : './Partners.html';
+            window.location.href = isLeftSide ? './index.html' : './partners.html';
         }, 600);
     });
 }
