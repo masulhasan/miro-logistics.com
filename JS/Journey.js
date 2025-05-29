@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (isLeftSide) {
         pageContainer.classList.add('slide-out-right');
         setTimeout(() => {
-          window.location.href = './in-Numbers.html';
+          window.location.href = './in-numbers.html';
         }, 600);
       } else {
         pageContainer.classList.add('slide-out-left');

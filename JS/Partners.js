@@ -121,7 +121,7 @@ if (isMobile) {
         // Swipe left: slide out left and go to next
         pageContainer.classList.add('slide-out-left');
         setTimeout(() => {
-          window.location.href = './in-Numbers.html';
+          window.location.href = './in-numbers.html';
         }, 500); // Slightly faster on mobile
       } else {
         // Swipe right: slide out right and go to previous
