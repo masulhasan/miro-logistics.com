@@ -427,3 +427,16 @@ body.slide-out-right .left-text p {
 .carousel-video video {
     transition: opacity 0.5s ease;
 }
+
+.carousel-image {
+  height: 420px;
+  width: 600px;
+  flex-shrink: 0;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

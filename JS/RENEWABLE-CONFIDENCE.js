@@ -1,11 +1,46 @@
-
 // RENEWABLE-CONFIDENCE.js - Flicker-Free Enhanced Version
 const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 let isScrolling = false;
 let scrollTimeout;
 let videoObserver;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    // ✅ Safari fallback
+    if (isSafari) {
+        const carousel = document.querySelector(".right-carousel");
+
+        if (carousel) {
+            const imageSet = [
+                "Assets/img/Safari-Img/Ship_2.jpg",
+                "Assets/img/Safari-Img/Transport_2.jpg",
+                "Assets/img/Safari-Img/219_bWV0ICgzNik_2.jpg",
+                "Assets/img/Safari-Img/Plastic_Small_2.jpg"
+            ];
+
+            let imageHTML = "";
+            for (let i = 0; i < 12; i++) {
+                for (let j = 0; j < imageSet.length; j++) {
+                    imageHTML += `
+                        <div class="carousel-image">
+                            <img src="${imageSet[j]}" alt="Fallback image ${j + 1}" />
+                        </div>
+                    `;
+                }
+            }
+
+            carousel.innerHTML = `
+                <div class="carousel-track">
+                    ${imageHTML}
+                </div>
+            `;
+        }
+
+        return; // Stop here — skip all video logic
+    }
+
+    // 🔄 Non-Safari Browsers — Continue with video logic
     const leftCursor = document.querySelector('.left-cursor');
     const rightCursor = document.querySelector('.right-cursor');
     const logoIcon = document.querySelector('.logo-icon');
@@ -115,7 +150,7 @@ function setupCanvasVideoPlayer(container, video) {
         alpha = Math.max(0.1, Math.min(1, alpha));
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = '#2CA5A0';
+        ctx.fillStyle = '#d8ecea';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalAlpha = alpha;
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -164,7 +199,7 @@ function playVideoSafely(video) {
 }
 
 function setupScrollHandler(leftCursor, rightCursor, carouselTrack) {
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (!isScrolling) {
             isScrolling = true;
             if (leftCursor) leftCursor.style.display = 'none';
@@ -183,7 +218,7 @@ function setupScrollHandler(leftCursor, rightCursor, carouselTrack) {
 function setupDesktopInteractions(leftCursor, rightCursor, logoIcon, contactLink) {
     let mouseMoveThrottle = false;
 
-    document.addEventListener('mousemove', function(e) {
+    document.addEventListener('mousemove', function (e) {
         if (mouseMoveThrottle || isScrolling) return;
         mouseMoveThrottle = true;
 
@@ -210,7 +245,7 @@ function setupDesktopInteractions(leftCursor, rightCursor, logoIcon, contactLink
         });
     }, { passive: true });
 
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (e.target.closest('.top-bar') ||
             e.target === logoIcon ||
             e.target === contactLink) {
@@ -238,12 +273,12 @@ function setupMobileInteractions() {
     let touchStartY = 0;
     const swipeThreshold = 50;
 
-    document.addEventListener('touchstart', function(e) {
+    document.addEventListener('touchstart', function (e) {
         touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
     }, { passive: true });
 
-    document.addEventListener('touchend', function(e) {
+    document.addEventListener('touchend', function (e) {
         const touchEndX = e.changedTouches[0].screenX;
         const touchEndY = e.changedTouches[0].screenY;
         const diffX = touchStartX - touchEndX;
