@@ -150,7 +150,7 @@ function setupCanvasVideoPlayer(container, video) {
         alpha = Math.max(0.1, Math.min(1, alpha));
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = '#d8ecea';
+        ctx.fillStyle = '#2CA5A0';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalAlpha = alpha;
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);

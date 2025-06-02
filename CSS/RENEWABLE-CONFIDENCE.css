@@ -313,11 +313,7 @@ body {
     transform: translateY(35px);
 }
 
-@media (max-width: 800px) {
-  .mobile{
-    display: none;
-  }
-}
+
 
 /* Add these styles to your RENEWABLE-CONFIDENCE.css file */
 
