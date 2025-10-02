@@ -1,5 +1,6 @@
-// RENEWABLE-CONFIDENCE.js - Continuous Carousel Fix
+// RENEWABLE-CONFIDENCE.js - Enhanced with Safari Fallback
 const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 let isScrolling = false;
 let scrollTimeout;
 let videoObserver;
@@ -11,6 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactLink = document.querySelector('.contact-link');
     const carouselTrack = document.querySelector('.carousel-track');
 
+    // Safari fallback - replace videos with images
+    if (isSafari) {
+        setupSafariFallback();
+        return; // Skip video initialization for Safari
+    }
+
+    // Non-Safari browsers - continue with video logic
     initializeVideos();
     
     // Ensure carousel starts and never stops
@@ -37,6 +45,51 @@ document.addEventListener('DOMContentLoaded', function() {
         setupMobileInteractions();
     }
 });
+
+function setupSafariFallback() {
+    const carousel = document.querySelector(".right-carousel");
+    
+    if (carousel) {
+        const imageSet = [
+            "Assets/img/Safari-Img/Ship_2.jpg",
+            "Assets/img/Safari-Img/Transport_2.jpg", 
+            "Assets/img/Safari-Img/219_bWV0ICgzNik_2.jpg",
+            "Assets/img/Safari-Img/Plastic_Small_2.jpg"
+        ];
+
+        let imageHTML = "";
+        // Create enough images for smooth infinite scrolling
+        for (let i = 0; i < 12; i++) {
+            for (let j = 0; j < imageSet.length; j++) {
+                imageHTML += `
+                    <div class="carousel-image">
+                        <img src="${imageSet[j]}" alt="Fallback image ${j + 1}" loading="lazy" />
+                    </div>
+                `;
+            }
+        }
+
+        carousel.innerHTML = `
+            <div class="carousel-track">
+                ${imageHTML}
+            </div>
+        `;
+
+        // Setup interactions for Safari
+        const leftCursor = document.querySelector('.left-cursor');
+        const rightCursor = document.querySelector('.right-cursor');
+        const logoIcon = document.querySelector('.logo-icon');
+        const contactLink = document.querySelector('.contact-link');
+        
+        setupScrollHandler(leftCursor, rightCursor);
+
+        if (!isMobile) {
+            setupDesktopInteractions(leftCursor, rightCursor, logoIcon, contactLink);
+        } else {
+            setupMobileInteractions();
+        }
+    }
+}
 
 function initializeVideos() {
     if (videoObserver) {
@@ -265,7 +318,7 @@ function setupMobileInteractions() {
             if (diffX > 0) {
                 pageContainer.classList.add('slide-out-left');
                 setTimeout(() => {
-                    window.location.href = './Partners.html';
+                    window.location.href = './partners.html';
                 }, 500);
             } else {
                 pageContainer.classList.add('slide-out-right');

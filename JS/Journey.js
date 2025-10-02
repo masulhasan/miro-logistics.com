@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           pageContainer.classList.add('slide-out-right');
           setTimeout(() => {
-            window.location.href = './in-Numbers.html';
+            window.location.href = './in-numbers.html';
           }, 500);
         }
       }

@@ -390,15 +390,15 @@ body {
 
   .contact-ceser-br {
     display: inline-block;
-    margin-left: -5px; 
+    margin-left: -1px; 
   }
   .contact-ceser-uk {
     display: inline-block;
-    margin-left: -5px; 
+    margin-left: -1px; 
   }
   .contact-ceser-e {
     display: inline-block;
-    margin-left: -15px; 
+    margin-left: -14px; 
   }
 
 @media (max-width: 900px) {
@@ -519,7 +519,18 @@ body {
 .contact-link {
   font-family: "Metric Semi Bold", "Arial", sans-serif;
   font-weight: 600;
-  min-width: 24px;
+  min-width: 26px;
+  display: inline-block;
+  text-decoration: none;
+  color: #0A2540;
+  cursor: pointer !important;
+  transition: color 0.3s ease;
+}
+
+.contact-link-ceser {
+  font-family: "Metric Semi Bold", "Arial", sans-serif;
+  font-weight: 600;
+  min-width: 30px;
   display: inline-block;
   text-decoration: none;
   color: #0A2540;

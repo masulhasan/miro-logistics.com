@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://miro-logistics.com/</loc>
+  <lastmod>2025-10-01T09:42:49+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://miro-logistics.com/renewable-confidence.html</loc>
+  <lastmod>2025-05-30T06:22:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://miro-logistics.com/partners.html</loc>
+  <lastmod>2025-05-30T06:22:35+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://miro-logistics.com/in-numbers.html</loc>
+  <lastmod>2025-05-30T06:22:35+00:00</lastmod>
+  <priority>0.40</priority>
+</url>
+<url>
+  <loc>https://miro-logistics.com/journey.html</loc>
+  <lastmod>2025-05-30T06:22:35+00:00</lastmod>
+  <priority>0.20</priority>
+</url>
+<url>
+  <loc>https://miro-logistics.com/team.html</loc>
+  <lastmod>2025-05-30T06:22:35+00:00</lastmod>
+  <priority>0.10</priority>
+</url>
+<url>
+  <loc>https://miro-logistics.com/contact.html</loc>
+  <lastmod>2025-05-30T06:22:35+00:00</lastmod>
+  <priority>0.05</priority>
+</url>
+
+
+</urlset>

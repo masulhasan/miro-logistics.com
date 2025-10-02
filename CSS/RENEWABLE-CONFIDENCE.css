@@ -48,6 +48,30 @@ body {
     transform-origin: center center;
 }
 
+/* FADE UP ANIMATIONS FOR HEADINGS AND TEXT ONLY */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.left-text h1 {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.left-text p {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
 /* VIDEO BACKGROUND */
 .video-header {
     position: fixed;
@@ -170,7 +194,6 @@ body {
     flex-direction: column;
     align-items: flex-end;
     gap: 20px;
-    /* Enhanced animation properties for continuous play */
     animation: scrollVideos 20s linear infinite;
     animation-fill-mode: none;
     animation-play-state: running !important;
@@ -179,7 +202,6 @@ body {
     transform: translateZ(0);
 }
 
-/* Force animation to never pause */
 .carousel-track,
 .carousel-track * {
     animation-play-state: running !important;
@@ -214,7 +236,22 @@ body {
     image-rendering: -webkit-optimize-contrast;
 }
 
-/* Improved keyframes for seamless loop */
+/* SAFARI FALLBACK IMAGE STYLES */
+.carousel-image {
+    height: 420px;
+    width: 600px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 @keyframes scrollVideos {
     0% {
         transform: translateY(0);
@@ -224,7 +261,6 @@ body {
     }
 }
 
-/* Ensure animation continues even with interactions */
 .carousel-track:hover,
 .carousel-track:focus,
 .carousel-track:active {
@@ -320,6 +356,12 @@ body {
         width: 400px;
     }
 
+    /* Mobile Safari fallback images */
+    .carousel-image {
+        height: 300px;
+        width: 400px;
+    }
+
     @keyframes scrollLeft {
         0% {
             transform: translateX(0);
@@ -338,9 +380,21 @@ body {
         font-size: 18px;
         line-height: 20px;
     }
+
+    /* Mobile animation adjustments */
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }
 
-/* ANIMATIONS */
+/* PAGE TRANSITION ANIMATIONS */
 body.slide-out-left {
     animation: slideOutLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -408,4 +462,12 @@ body.slide-in-from-right {
     body.slide-in-from-right {
         animation-duration: 0.5s;
     }
+}
+
+/* PAUSE ANIMATIONS DURING PAGE TRANSITIONS */
+body.slide-out-left .left-text h1,
+body.slide-out-right .left-text h1,
+body.slide-out-left .left-text p,
+body.slide-out-right .left-text p {
+    animation-play-state: paused;
 }
