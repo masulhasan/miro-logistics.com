@@ -1,2 +1,1 @@
-# miro-logistics.com
-Development Website 
+Miro Logistics is a freight forwarding company specializing in containerised waste export, including materials like waste paper, plastics, and scrap metals. Their focus on tailored logistics solutions required a website that clearly communicated expertise, trust, and professionalism within a niche industry.
